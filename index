@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CanadaPR — Complete Immigration Guide</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f9fb;--card:#fff;--text:#111827;--sub:#64748b;
+  --border:#e5e7eb;--accent:#dc2626;--blue:#2563eb;
+  --green:#059669;--amber:#d97706;--red:#dc2626;
+  --radius:14px;--shadow:0 1px 3px rgba(0,0,0,.06);
+  --shadow2:0 8px 30px rgba(0,0,0,.08);
+  --max:880px;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hdr-in{max-width:var(--max);margin:0 auto;display:flex;align-items:center;padding:0 20px;height:56px;gap:12px}
+.brand{font-weight:800;font-size:1.1rem;color:var(--accent);text-decoration:none;white-space:nowrap;cursor:pointer}
+.brand span{color:var(--text)}
+.hdr-search{flex:1;position:relative;max-width:360px;margin-left:auto}
+.hdr-search input{width:100%;padding:8px 14px 8px 36px;border:1.5px solid var(--border);border-radius:10px;font-size:.88rem;outline:none;background:var(--bg);transition:border .2s}
+.hdr-search input:focus{border-color:var(--blue)}
+.hdr-search .si{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:.9rem;opacity:.4}
+.s-drop{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border-radius:12px;box-shadow:var(--shadow2);max-height:360px;overflow-y:auto;display:none;z-index:200}
+.s-drop.open{display:block}
+.s-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .15s}
+.s-item:last-child{border:none}
+.s-item:hover{background:#f1f5f9}
+.s-item h4{font-size:.9rem;font-weight:600}.s-item p{font-size:.75rem;color:var(--sub)}
+.menu-btn{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;padding:4px 8px;color:var(--text)}
+@media(max-width:640px){
+  .menu-btn{display:block}
+  .hdr-search{max-width:none;margin:0}
+  .desk-nav{display:none!important}
+}
+.desk-nav{display:flex;gap:2px;margin-left:16px}
+.desk-nav a{font-size:.82rem;font-weight:500;color:var(--sub);text-decoration:none;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.desk-nav a:hover,.desk-nav a.on{background:#f1f5f9;color:var(--text)}
+
+.overlay{position:fixed;inset:0;z-index:500;display:none;align-items:flex-start;justify-content:flex-end}
+.overlay.open{display:flex}
+.overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.3);animation:fadeIn .2s}
+.nav-panel{position:relative;z-index:1;width:280px;height:100%;background:#fff;padding:20px;overflow-y:auto;animation:slideIn .25s var(--ease)}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.nav-panel .close{background:none;border:none;font-size:1.4rem;cursor:pointer;float:right;color:var(--sub)}
+.nav-panel nav{margin-top:40px;display:flex;flex-direction:column;gap:2px}
+.nav-panel nav a{font-size:.95rem;font-weight:500;padding:12px 16px;border-radius:10px;text-decoration:none;color:var(--text);cursor:pointer;transition:background .15s}
+.nav-panel nav a:hover{background:#f1f5f9}
+.nav-panel nav .sep{height:1px;background:var(--border);margin:8px 0}
+
+main{max-width:var(--max);margin:0 auto;padding:20px;min-height:80vh}
+.fade{animation:fadeUp .35s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.hero{text-align:center;padding:48px 0 40px}
+.hero h1{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:12px;letter-spacing:-.02em}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{color:var(--sub);font-size:1.05rem;max-width:520px;margin:0 auto 28px}
+.hero-search{position:relative;max-width:480px;margin:0 auto}
+.hero-search input{width:100%;padding:14px 18px 14px 44px;border:2px solid var(--border);border-radius:50px;font-size:.95rem;outline:none;transition:border .2s;background:#fff}
+.hero-search input:focus{border-color:var(--blue)}
+.hero-search .si{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.35}
+.hero-search .s-drop{border-radius:16px}
+
+.sec-title{font-size:1.2rem;font-weight:700;margin:36px 0 6px}
+.sec-sub{color:var(--sub);font-size:.9rem;margin-bottom:20px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-bottom:48px}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px;cursor:pointer;transition:all .2s;text-decoration:none;color:inherit}
+.cat-card:hover{box-shadow:var(--shadow2);transform:translateY(-2px);border-color:#d1d5db}
+.cat-card .ic{font-size:1.6rem;margin-bottom:8px;display:block}
+.cat-card h3{font-size:.98rem;font-weight:700;margin-bottom:4px}
+.cat-card p{color:var(--sub);font-size:.82rem;line-height:1.5}
+
+/* ===== FEATURED CTA CARD ===== */
+.cat-card.featured{
+  background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%);
+  border:2px solid #dc2626;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  grid-column:1 / -1;
+}
+.cat-card.featured::before{
+  content:'';
+  position:absolute;
+  top:-50%;right:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);
+  animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-5%,5%)}
+}
+.cat-card.featured:hover{
+  box-shadow:0 12px 40px rgba(220,38,38,.3);
+  transform:translateY(-3px);
+  border-color:#ef4444;
+  background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);
+}
+.cat-card.featured .ic{font-size:2rem}
+.cat-card.featured h3{font-size:1.15rem;color:#fff}
+.cat-card.featured p{color:rgba(255,255,255,.85);font-size:.88rem}
+.cat-card.featured .cta-arrow{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:10px;
+  font-size:.82rem;font-weight:700;
+  color:#fff;
+  background:rgba(255,255,255,.18);
+  padding:8px 18px;
+  border-radius:50px;
+  transition:background .2s;
+}
+.cat-card.featured:hover .cta-arrow{background:rgba(255,255,255,.28)}
+.maple-leaf{
+  position:absolute;
+  bottom:12px;right:16px;
+  font-size:3.5rem;
+  opacity:.12;
+  pointer-events:none;
+}
+
+.pg-hdr{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.pg-hdr .back{font-size:.85rem;color:var(--blue);cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px;font-weight:500;text-decoration:none}
+.pg-hdr .back:hover{text-decoration:underline}
+.pg-hdr h1{font-size:1.6rem;font-weight:800;line-height:1.3}
+.pg-hdr p{color:var(--sub);font-size:.93rem;margin-top:6px}
+
+.p-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s}
+.p-card:hover{box-shadow:var(--shadow2)}
+.p-head{padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:background .15s}
+.p-head:hover{background:#fafbfc}
+.p-head h2{font-size:.95rem;font-weight:600;flex:1;line-height:1.4}
+.badge{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;white-space:nowrap;flex-shrink:0;letter-spacing:.02em}
+.badge.active{background:#ecfdf5;color:var(--green)}
+.badge.paused{background:#fffbeb;color:var(--amber)}
+.badge.closed{background:#fef2f2;color:var(--red)}
+.arrow{font-size:.7rem;color:var(--sub);transition:transform .25s;flex-shrink:0}
+.p-card.open .arrow{transform:rotate(180deg)}
+.p-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);padding:0 20px}
+.p-card.open .p-body{max-height:3000px;padding:0 20px 20px}
+
+.sumbox{background:#eff6ff;border-left:3px solid var(--blue);padding:14px 16px;border-radius:0 10px 10px 0;margin:12px 0 16px;font-size:.88rem;line-height:1.6}
+.sumbox strong{display:block;font-size:.72rem;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+
+.info-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.info-pill{background:#f1f5f9;padding:10px 14px;border-radius:10px;flex:1;min-width:140px}
+.info-pill .l{font-size:.68rem;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.info-pill .v{font-weight:700;font-size:.9rem}
+
+.p-body h3{font-size:.88rem;font-weight:700;margin:16px 0 8px;color:var(--text)}
+.p-body ul{margin-left:18px;margin-bottom:10px}
+.p-body li{font-size:.86rem;color:#374151;margin-bottom:5px;line-height:1.6}
+.p-body table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.84rem}
+.p-body th,.p-body td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border)}
+.p-body th{background:#f8fafc;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.3px;color:var(--sub)}
+
+.link-btn{display:inline-block;margin-top:14px;padding:9px 20px;background:var(--accent);color:#fff;text-decoration:none;border-radius:9px;font-weight:600;font-size:.82rem;transition:background .2s}
+.link-btn:hover{background:#b91c1c}
+.upd-flag{display:inline-block;font-size:.68rem;color:var(--amber);background:#fffbeb;padding:2px 8px;border-radius:50px;font-weight:600;margin-left:6px}
+.closed-msg{color:var(--red);font-weight:600;font-size:.9rem;padding:8px 0}
+
+.faq{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+.faq-q{padding:16px 20px;font-weight:600;font-size:.9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.faq-q:hover{background:#fafbfc}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);padding:0 20px;font-size:.88rem;color:#374151;line-height:1.8}
+.faq.open .faq-a{max-height:800px;padding:0 20px 16px}
+.faq.open .faq-toggle{transform:rotate(180deg)}
+.faq-toggle{transition:transform .25s;color:var(--sub);font-size:.7rem;flex-shrink:0}
+
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin:24px 0 48px}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.tool-card .ic{font-size:1.6rem;margin-bottom:10px;display:block}
+.tool-card h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.tool-card p{color:var(--sub);font-size:.86rem;margin-bottom:6px}
+.io{background:#f8fafc;border-radius:10px;padding:12px 14px;margin-top:10px;font-size:.82rem;line-height:1.7}
+.io strong{color:var(--blue)}
+
+.ftr{text-align:center;padding:36px 20px;font-size:.78rem;color:var(--sub);border-top:1px solid var(--border);margin-top:48px;line-height:2}
+.ftr a{color:var(--blue)}
+
+.scroll-btn{position:fixed;bottom:20px;right:20px;width:42px;height:42px;border-radius:50%;background:var(--text);color:#fff;border:none;font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow2);opacity:0;pointer-events:none;transition:all .25s;z-index:90;display:flex;align-items:center;justify-content:center}
+.scroll-btn.show{opacity:1;pointer-events:auto}
+.scroll-btn:hover{transform:scale(1.1)}
+
+@media(max-width:640px){
+  main{padding:16px}
+  .cat-grid{grid-template-columns:1fr}
+  .cat-card.featured{grid-column:auto}
+  .tool-grid{grid-template-columns:1fr}
+  .info-row{flex-direction:column}
+  .hero{padding:36px 0 28px}
+  .p-head{padding:14px 16px}
+  .p-body{padding:0 16px}
+  .p-card.open .p-body{padding:0 16px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" onclick="go('home')">🍁 <span>CanadaPR</span></a>
+    <div class="hdr-search" id="hdrSearch" style="display:none">
+      <span class="si">🔍</span>
+      <input type="text" placeholder="Search programs…" oninput="doSearch(this.value,this)" autocomplete="off">
+      <div class="s-drop" id="hdrDrop"></div>
+    </div>
+    <nav class="desk-nav" id="deskNav"></nav>
+    <button class="menu-btn" onclick="openNav()">☰</button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-bg" onclick="closeNav()"></div>
+  <div class="nav-panel">
+    <button class="close" onclick="closeNav()">✕</button>
+    <nav id="mobileNav"></nav>
+  </div>
+</div>
+
+<main id="app"></main>
+<button class="scroll-btn" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const CATS = [
+  {id:'express-entry',name:'Express Entry',icon:'⚡',desc:'Canada\'s fastest PR system — FSWP, CEC, FSTP, and category-based draws.'},
+  {id:'pnp',name:'Provincial Nominees',icon:'🏛️',desc:'Over 80 streams across provinces and territories targeting local labor needs.'},
+  {id:'family',name:'Family Sponsorship',icon:'👨‍👩‍👧‍👦',desc:'Sponsor your spouse, children, parents, or grandparents for PR.'},
+  {id:'quebec',name:'Quebec Programs',icon:'⚜️',desc:'Quebec runs its own immigration system — separate from federal programs.'},
+  {id:'pilots',name:'Regional & Pilot',icon:'🌾',desc:'Atlantic Immigration, RNIP, Francophone, and targeted community programs.'},
+  {id:'trtopr',name:'TR → PR',icon:'🔄',desc:'Pathways for people already in Canada on work or study permits.'},
+  {id:'business',name:'Business & Investor',icon:'💼',desc:'Start-Up Visa, Self-Employed, and provincial business streams.'},
+  {id:'humanitarian',name:'Humanitarian',icon:'🕊️',desc:'Refugee protection, H&C grounds, caregiver pilots, and public policy programs.'}
+];
+
+const NAV = [{id:'home',label:'Home'},...CATS.map(c=>({id:c.id,label:c.name})),{id:'faq',label:'FAQ'},{id:'tools',label:'Tools'}];
+
+const P = {
+'express-entry':{
+  title:'Express Entry',icon:'⚡',
+  desc:'Canada\'s flagship points-based immigration system. Manages three federal economic programs through the Comprehensive Ranking System (CRS). Most applications processed in about 6 months.',
+  programs:[
+    {id:'fswp',name:'Federal Skilled Worker Program (FSWP)',status:'active',
+     summary:'For skilled workers with foreign work experience. You need at least 1 year of skilled work experience, strong language scores, and 67+ points on a selection grid. You then enter the Express Entry pool and are ranked by CRS.',
+     eligibility:['1+ year continuous full-time skilled work experience (NOC TEER 0, 1, 2, or 3) in the last 10 years','Language: minimum CLB 7 in all four abilities','Educational Credential Assessment (ECA) for foreign education','Score 67+ on the FSWP selection grid (language, education, experience, age, job offer, adaptability)','Proof of settlement funds (unless you have a valid Canadian job offer)','Be admissible to Canada (no criminal or medical inadmissibility)'],
+     documents:['Valid passport','IELTS General or CELPIP (English) / TEF or TCF (French) results','ECA report from a designated organization','Work experience proof (reference letters, pay stubs, contracts)','Proof of funds (bank statements)','Police clearance certificates from every country lived in 6+ months since age 18','Medical exam from an IRCC panel physician','Digital photos meeting IRCC specifications'],
+     processingTime:'~6 months after ITA',fees:'$850 processing + $515 RPRF = $1,365 per adult. Spouse: $1,365. Child: $230. Biometrics: $85/person.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html'},
+    {id:'cec',name:'Canadian Experience Class (CEC)',status:'active',
+     summary:'For people who have already worked in Canada. If you have 1+ year of skilled Canadian work experience in the last 3 years, this may be your fastest path. No education requirement and no points grid — meet the minimums and enter the Express Entry pool.',
+     eligibility:['12+ months full-time (or equivalent part-time) skilled Canadian work experience in the last 3 years','Work must be NOC TEER 0, 1, 2, or 3','Language: CLB 7 for TEER 0/1; CLB 5 for TEER 2/3','Experience must have been authorized work in Canada','Must not have been a full-time student during the claimed work period','Plan to live outside Quebec'],
+     documents:['Valid passport','Language test results','Canadian work proof (T4 slips, reference letters, pay stubs, ROE)','Police clearance certificates','Medical exam results','ECA report (optional but boosts CRS score)'],
+     processingTime:'~6 months after ITA',fees:'$1,365 per adult (same as FSWP)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/canadian-experience-class.html'},
+    {id:'fstp',name:'Federal Skilled Trades Program (FSTP)',status:'active',
+     summary:'For skilled tradespeople — electricians, plumbers, welders, heavy equipment operators, cooks, and similar roles. You need 2 years of trade experience, plus either a valid Canadian job offer or a Canadian trade certificate. No education requirement.',
+     eligibility:['2+ years full-time skilled trade experience in the last 5 years','Qualifying trades in NOC TEER 2 or 3 (industrial, electrical, construction, maintenance, agriculture, food processing)','Valid job offer of 1+ year from up to 2 Canadian employers, OR a certificate of qualification from a Canadian province/territory','Language: CLB 5 speaking/listening, CLB 4 reading/writing','No minimum education requirement'],
+     documents:['Valid passport','Language test results','Trade work experience proof with detailed job duty descriptions','Certificate of qualification or job offer letter(s)','Police clearance certificates','Medical exam results'],
+     processingTime:'~6 months after ITA',fees:'$1,365 per adult',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/skilled-trades.html'},
+    {id:'catdraws',name:'Category-Based Selection Draws',status:'active',flag:'Since 2023',
+     summary:'Since 2023, IRCC issues Express Entry invitations targeting specific categories — healthcare, STEM, trades, transport, agriculture, and French-language speakers. You still need an Express Entry profile, but targeted draws may invite you at a lower CRS than general draws.',
+     eligibility:['Must have a valid Express Entry profile (FSWP, CEC, or FSTP eligible)','Must have work experience or qualifications in the target category','Categories announced so far: Healthcare, STEM, Trades, Transport, Agriculture & agri-food, French-language proficiency'],
+     documents:['Same as the underlying EE program (FSWP, CEC, or FSTP)'],
+     processingTime:'~6 months after ITA',fees:'Same as Express Entry',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html',
+     note:'Categories and CRS cutoffs change with every draw. Always check the official Rounds of Invitations page for the latest results.'}
+  ]
+},
+'pnp':{
+  title:'Provincial Nominee Programs (PNPs)',icon:'🏛️',
+  desc:'Each province and territory (except Nunavut and Quebec) nominates immigrants who meet local economic needs. A provincial nomination adds 600 CRS points in Express Entry or allows a paper-based application. Processing: typically 1–6 months at the provincial level, then 6+ months federally.',
+  programs:[
+    {id:'oinp',name:'Ontario — OINP',status:'active',
+     summary:'Canada\'s most populous province. Multiple EE-linked and base streams. Uses an Expression of Interest (EOI) system with periodic draws.',
+     streams:[['Human Capital Priorities','EE','✅'],['French-Speaking Skilled Worker','EE','✅'],['Skilled Trades','EE','✅'],['Employer Job Offer: Foreign Worker','Base','✅'],['Employer Job Offer: International Student','Base','✅'],['Employer Job Offer: In-Demand Skills','Base','✅'],['Masters Graduate','Base','✅'],['PhD Graduate','Base','✅']],
+     fees:'$1,500 provincial + federal fees',
+     link:'https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp'},
+    {id:'bcpnp',name:'British Columbia — BC PNP',status:'active',
+     summary:'Uses a Skills Immigration Registration System (SIRS) with regular draws. Both Express Entry and direct streams are available for skilled workers, healthcare professionals, and graduates.',
+     streams:[['Skilled Worker','SI / EE','✅'],['Healthcare Professional','SI / EE','✅'],['International Graduate','SI / EE','✅'],['International Post-Graduate','SI / EE','✅'],['Entry Level and Semi-Skilled','SI','✅'],['Entrepreneur — Base','Business','✅'],['Entrepreneur — Regional Pilot','Business','✅']],
+     fees:'$1,150 provincial + federal fees',
+     link:'https://www.welcomebc.ca/Immigrate-to-B-C/About-The-BC-PNP'},
+    {id:'aaip',name:'Alberta — AAIP',status:'active',
+     summary:'Alberta\'s rebranded immigration program includes EE and non-EE streams for workers and entrepreneurs. Uses EOI draws targeting specific occupations.',
+     streams:[['Alberta Express Entry Stream','EE','✅'],['Alberta Opportunity Stream','Base','✅'],['Rural Renewal Stream','Base','✅'],['Rural Entrepreneur Stream','Business','✅'],['Graduate Entrepreneur Stream','Business','✅'],['Farm Stream','Base','✅'],['Tourism & Hospitality Stream','Base','✅']],
+     fees:'$500 provincial + federal fees',
+     link:'https://www.alberta.ca/alberta-advantage-immigration-program'},
+    {id:'sinp',name:'Saskatchewan — SINP',status:'active',
+     summary:'Uses an EOI system with regular draws. Popular for its Occupation In-Demand and Express Entry sub-categories.',
+     streams:[['International Skilled Worker — Employment Offer','Base','✅'],['International Skilled Worker — Occupation In-Demand','Base','✅'],['International Skilled Worker — Saskatchewan EE','EE','✅'],['Saskatchewan Experience — Existing Work Permit','Base','✅'],['Saskatchewan Experience — Health Professionals','Base','✅'],['Saskatchewan Experience — Hospitality','Base','✅'],['Saskatchewan Experience — Students','Base','✅'],['Entrepreneur & Farm','Business','✅'],['International Graduate Entrepreneur','Business','✅']],
+     fees:'$350 provincial + federal fees',
+     link:'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program'},
+    {id:'mpnp',name:'Manitoba — MPNP',status:'active',
+     summary:'One of Canada\'s most established PNPs. Prioritizes candidates with connections to Manitoba through family, work, or education in the province.',
+     streams:[['Skilled Worker in Manitoba','Base','✅'],['Skilled Worker Overseas','Base','✅'],['International Education Stream','Base','✅'],['Business Investor Stream','Business','✅'],['Human Capital Pathway','EE','✅']],
+     fees:'$500 provincial + federal fees',
+     link:'https://immigratemanitoba.com/'},
+    {id:'nsnp',name:'Nova Scotia — NSNP',status:'active',
+     summary:'Multiple streams for workers, graduates, entrepreneurs, and physicians. Labour Market Priorities stream is popular for EE candidates.',
+     streams:[['Labour Market Priorities','EE','✅'],['Labour Market Priorities for Physicians','EE','✅'],['Nova Scotia Experience: Express Entry','EE','✅'],['Skilled Worker','Base','✅'],['Occupation In-Demand','Base','✅'],['International Graduates In-Demand','Base','✅'],['International Graduate Entrepreneur','Business','✅'],['Entrepreneur','Business','✅'],['Physician Stream','Base','✅']],
+     fees:'Varies by stream + federal fees',
+     link:'https://novascotiaimmigration.com/move-here/'},
+    {id:'nbpnp',name:'New Brunswick — NBPNP',status:'active',
+     summary:'Streams for skilled workers with employer support, strategic initiative candidates, and entrepreneurs.',
+     streams:[['NB Express Entry Labour Market','EE','✅'],['Skilled Workers with Employer Support','Base','✅'],['Strategic Initiative','Base','✅'],['Entrepreneurial Stream','Business','✅'],['Critical Worker Pilot','Base','✅']],
+     fees:'$250 provincial + federal fees',
+     link:'https://www.welcomenb.ca/content/wel-bien/en/immigrating/content/HowToImmigrate/NBProvincialNomineeProgram.html'},
+    {id:'peipnp',name:'Prince Edward Island — PEI PNP',status:'active',
+     summary:'Small province with targeted streams for skilled workers, critical workers, international graduates, and business immigrants.',
+     streams:[['PEI Express Entry','EE','✅'],['Labour Impact — Skilled Workers','Base','✅'],['Labour Impact — Critical Workers','Base','✅'],['Labour Impact — International Graduates','Base','✅'],['Business Impact','Business','✅']],
+     fees:'$300 provincial + federal fees',
+     link:'https://www.princeedwardisland.ca/en/topic/office-immigration'},
+    {id:'nlpnp',name:'Newfoundland & Labrador — NLPNP',status:'active',
+     summary:'Streams for skilled workers, international graduates, and entrepreneurs in Canada\'s easternmost province.',
+     streams:[['Express Entry Skilled Worker','EE','✅'],['Skilled Worker Category','Base','✅'],['International Graduate Category','Base','✅'],['International Entrepreneur Category','Business','✅'],['Priority Skills NL','Base','✅']],
+     fees:'$250 provincial + federal fees',
+     link:'https://www.gov.nl.ca/immigration/'},
+    {id:'ynp',name:'Yukon — YNP',status:'active',
+     summary:'Territory-based program for workers and business immigrants in Canada\'s northwest. Includes community pilot initiatives.',
+     streams:[['Yukon Express Entry','EE','✅'],['Skilled Worker','Base','✅'],['Critical Impact Worker','Base','✅'],['Business Nominee','Business','✅'],['Yukon Community Pilot','Base','✅']],
+     fees:'No provincial fee + federal fees',
+     link:'https://yukon.ca/en/doing-business/yukon-nominee-program'},
+    {id:'ntnp',name:'Northwest Territories — NTNP',status:'active',
+     summary:'Employer-driven program for skilled workers and entry-level workers, plus a Francophone stream and business stream.',
+     streams:[['Express Entry Stream','EE','✅'],['Employer Driven — Skilled Worker','Base','✅'],['Employer Driven — Entry Level/Semi-Skilled','Base','✅'],['Francophone Stream','Base','✅'],['Business Stream','Business','✅']],
+     fees:'No provincial fee + federal fees',
+     link:'https://www.immigratenwt.ca/'}
+  ]
+},
+'family':{
+  title:'Family Sponsorship',icon:'👨‍👩‍👧‍👦',
+  desc:'Canadian citizens and permanent residents can sponsor close family members for permanent residence. No Express Entry or CRS required — this is a separate process.',
+  programs:[
+    {id:'spouse',name:'Spouse / Common-Law Partner Sponsorship',status:'active',
+     summary:'Sponsor your married spouse, common-law partner (1+ year cohabitation), or conjugal partner for PR. The sponsored person can be inside or outside Canada. No income requirement for spousal sponsorship.',
+     eligibility:['Sponsor: Canadian citizen or PR, 18+, not in prison/bankrupt/under removal order','Sponsor: Not currently sponsoring another spouse or under a previous sponsorship undertaking','Sponsor: No convictions for domestic violence or sexual offences','Sponsored person: legal spouse, common-law partner (1+ year cohabitation), or conjugal partner','Sponsored person: 18+, admissible to Canada'],
+     documents:['Marriage certificate or proof of common-law relationship','Relationship questionnaire (IMM 5532)','Photos together as a couple','Joint financial documents (shared bank accounts, leases, bills)','Communication records (messages, call logs, travel history)','Passports and government-issued ID for both parties','Police clearances for both parties','Medical exam results','Digital photos'],
+     processingTime:'~12 months',fees:'$1,050 total ($75 sponsorship + $490 processing + $500 RPRF). Biometrics: $85.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/spouse-partner-children.html'},
+    {id:'children',name:'Dependent Children',status:'active',
+     summary:'Sponsor your dependent children (biological or adopted) for PR. A dependent child must be under 22, unmarried, and not in a common-law relationship. Children 22+ qualify only if they depend on a parent due to a medical condition since before age 22.',
+     eligibility:['Child under 22, not married or in a common-law relationship','OR child 22+ who has depended on parental financial support since before 22 due to a physical or mental condition'],
+     documents:['Child\'s birth certificate or adoption papers','Proof of dependency (if 22+)','Passport, police clearance, medical exam'],
+     processingTime:'~12 months',fees:'$150 processing per child + $85 biometrics',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/spouse-partner-children.html'},
+    {id:'pgp',name:'Parents & Grandparents Program (PGP)',status:'active',flag:'Lottery-based intake',
+     summary:'Sponsor your parents or grandparents for PR. Intake is limited — IRCC uses an interest-to-sponsor form then randomly selects via lottery. You must meet a Minimum Necessary Income for 3 consecutive tax years.',
+     eligibility:['Sponsor: Canadian citizen or PR, 18+, living in Canada','Meet the Minimum Necessary Income (MNI) for 3 consecutive tax years based on total family size','Sign an undertaking to financially support for 20 years','Income thresholds (approx.): 2 persons ~$43,000; 3 persons ~$53,000; 4 persons ~$64,000; 5 persons ~$73,000'],
+     documents:['Interest to Sponsor form (when intake opens)','CRA Notice of Assessments for 3 years','Proof of relationship (birth certificates)','Passports, police clearances, medical exams'],
+     processingTime:'20–24 months',fees:'$1,050 per parent/grandparent (processing + RPRF)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/sponsor-parents-grandparents.html',
+     note:'Income thresholds are updated annually by IRCC. Always verify the current MNI before applying.'},
+    {id:'supervisa',name:'Super Visa (Parents & Grandparents)',status:'active',
+     summary:'Not a PR pathway — a multi-entry visitor visa letting parents/grandparents stay up to 5 years per visit. Good alternative while waiting for PGP. Requires private medical insurance.',
+     eligibility:['Child/grandchild in Canada must meet income threshold','Private medical insurance: valid 1+ year, minimum $100,000 coverage, from a Canadian insurance company','Medical exam','Valid for up to 10 years, stays up to 5 years per visit'],
+     documents:['Proof of relationship','Proof of child\'s income','Medical insurance policy','Medical exam results','Standard visitor visa documents'],
+     processingTime:'Varies by visa office',fees:'$100 visitor visa fee + $85 biometrics',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/parent-grandparent-super-visa.html'},
+    {id:'otherrel',name:'Other Relatives / Orphaned Family',status:'active',
+     summary:'Sponsor an orphaned brother, sister, nephew, niece, or grandchild (under 18, unmarried, both parents deceased). Or sponsor one relative of any relation if you have no other family in Canada ("Lonely Canadian" provision).',
+     eligibility:['Orphaned relatives: under 18, unmarried, both parents deceased','Lonely Canadian: no living spouse, child, parent, grandparent, or sibling who is a citizen/PR, and no one else you could sponsor'],
+     documents:['Proof of relationship and orphan status','Standard sponsorship documents'],
+     processingTime:'Varies',fees:'Standard sponsorship fees',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/other-relatives.html'}
+  ]
+},
+'quebec':{
+  title:'Quebec Immigration Programs',icon:'⚜️',
+  desc:'Quebec runs its own immigration system. You must first obtain a Certificat de sélection du Québec (CSQ) from the province, then apply to IRCC for federal PR. French language ability is heavily weighted in all Quebec programs.',
+  programs:[
+    {id:'qswp',name:'Quebec Skilled Worker Program (QSWP) — Arrima',status:'active',
+     summary:'Quebec\'s main skilled worker pathway. Create a profile in the Arrima portal and get selected based on Quebec\'s own point system. French proficiency, in-demand work experience, and a validated Quebec job offer are strongly favored. Separate from federal Express Entry.',
+     eligibility:['Create an Expression of Interest in Arrima','Be selected via invitation based on Quebec\'s grid (education, work experience, age, language, validated job offer, connection to Quebec)','French proficiency is strongly favored (high points)','Sufficient settlement funds'],
+     documents:['Arrima profile submission','Education documents','Work experience proof','French and/or English language test results','Police clearances','Medical exam (at federal stage)'],
+     processingTime:'~6 months for CSQ + 12+ months federally',fees:'$836 CSQ (principal applicant) + $222 per spouse + $176 per child, then federal fees',
+     link:'https://www.quebec.ca/en/immigration/permanent/skilled-workers/regular-skilled-worker-program'},
+    {id:'peq',name:'Programme de l\'expérience québécoise (PEQ)',status:'active',
+     summary:'Fast-track PR for foreign workers or graduates already in Quebec. If you\'ve worked or studied in Quebec and speak French at B2 level (oral), you can get a CSQ without going through the Arrima points system.',
+     eligibility:['Foreign Worker stream: 24 months full-time Quebec work experience in the last 36 months','Graduate stream: Quebec diploma (DEP, DEC, bachelor\'s, master\'s, or PhD) with stream-specific requirements','Both streams: French oral B2 (DELF, TCF, TEFaQ, or accredited Quebec French coursework)','Knowledge of Quebec democratic values (attestation or course)'],
+     documents:['Proof of Quebec work experience or diploma','French test results or coursework proof','Values attestation','Standard immigration documents'],
+     processingTime:'~1 month for CSQ + 12+ months federally',fees:'$836 CSQ (principal) + federal fees',
+     link:'https://www.quebec.ca/en/immigration/permanent/skilled-workers/quebec-experience-program'},
+    {id:'qinv',name:'Quebec Investor Program',status:'paused',
+     summary:'Allowed wealthy individuals to immigrate via a passive government-guaranteed investment. Has been suspended since 2019 and has not reopened as of 2025.',
+     eligibility:['Program suspended — no current intake'],documents:[],
+     processingTime:'N/A',fees:'N/A',
+     link:'https://www.quebec.ca/en/immigration/permanent/investors',
+     note:'This program has been suspended since 2019. Monitor the MIFI website for any reopening announcements.'},
+    {id:'qent',name:'Quebec Entrepreneur Program',status:'active',
+     summary:'For people who want to start or acquire a business in Quebec. Two sub-streams: Stream 1 (innovation-focused, requires support from an acceleration/incubation organization) and Stream 2 (business acquisition, requires $900,000+ net assets).',
+     eligibility:['Stream 1: Service agreement with a Quebec accelerator/incubator, innovative business project','Stream 2: Net assets of $900,000+, relevant business/management experience','Business plan','French language skills (important for CSQ but not strictly mandatory at application)'],
+     documents:['Business plan','Proof of net assets','Accelerator/incubator agreement (Stream 1)','Business experience documentation'],
+     processingTime:'Varies',fees:'CSQ fees + federal fees',
+     link:'https://www.quebec.ca/en/immigration/permanent/entrepreneurs'},
+    {id:'qse',name:'Quebec Self-Employed Worker Program',status:'active',
+     summary:'For people who can create their own employment in Quebec. Need 2+ years of self-employment experience in your intended profession and at least $100,000 net assets.',
+     eligibility:['2+ years of relevant self-employment experience','Minimum $100,000 net assets','Sign a service agreement with a Quebec partner organization','Intend to be self-employed in Quebec'],
+     documents:['Proof of self-employment experience','Proof of net assets','Service agreement','Business/professional plan'],
+     processingTime:'Varies',fees:'CSQ fees + federal fees',
+     link:'https://www.quebec.ca/en/immigration/permanent/self-employed-workers'}
+  ]
+},
+'pilots':{
+  title:'Regional & Pilot Programs',icon:'🌾',
+  desc:'Targeted programs addressing labor shortages in specific regions, industries, or communities across Canada.',
+  programs:[
+    {id:'aip',name:'Atlantic Immigration Program (AIP)',status:'active',flag:'Permanent since Jan 2022',
+     summary:'Helps Atlantic Canadian employers (NB, NS, PEI, NL) hire foreign workers or international graduates who want to live in the region. You need a job offer from a designated employer and a settlement plan.',
+     eligibility:['Job offer from a designated Atlantic employer','1+ year work experience in the last 5 years (skilled workers) OR degree/diploma from an Atlantic Canadian post-secondary institution (graduates)','Language: CLB 5 (NOC TEER 0/1/2/3) or CLB 4 (TEER 4)','High school diploma or higher','Settlement funds','Settlement plan from a designated settlement organization'],
+     documents:['Job offer letter from designated employer','Provincial endorsement','Work experience proof or Atlantic diploma','Language test results','Settlement plan','Police clearances, medical exam, photos'],
+     processingTime:'~6 months after endorsement',fees:'$1,365 per adult (standard federal PR fees)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/atlantic-immigration.html'},
+    {id:'rnip',name:'Rural and Northern Immigration Pilot (RNIP)',status:'closed',
+     summary:'Community-driven pilot that helped small rural and northern communities attract foreign workers. The pilot has ended — applications received before the deadline continue to be processed.',
+     eligibility:['Pilot has ended — no new applications accepted'],documents:['N/A'],
+     processingTime:'Existing applications continue processing',fees:'N/A',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/rural-northern-immigration-pilot.html',
+     note:'RNIP has ended. Some successor community-based programs may be announced. Check IRCC for updates.'},
+    {id:'fcip',name:'Francophone Community Immigration Pilot',status:'active',
+     summary:'Supports French-speaking immigrants settling in Francophone minority communities outside Quebec. Communities connect French-speaking workers with local employers and settlement services.',
+     eligibility:['Must be French-speaking','Job offer or community referral from a participating Francophone community','Meet standard work experience and language requirements'],
+     documents:['Proof of French proficiency','Job offer or community referral','Standard immigration documents'],
+     processingTime:'Varies',fees:'Standard federal PR fees',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/francophone-immigration-outside-quebec.html'},
+    {id:'agri',name:'Agri-Food Immigration Pilot',status:'closed',
+     summary:'Provided a PR pathway for experienced non-seasonal workers in meat processing, greenhouse production, and animal farming. The pilot has ended and is no longer accepting new applications.',
+     eligibility:['Pilot has ended — no new applications accepted'],documents:['N/A'],
+     processingTime:'Existing applications continue processing',fees:'N/A',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/agri-food-pilot.html',
+     note:'The Agri-Food Immigration Pilot is CLOSED. Workers in agriculture may explore Express Entry category-based draws (agriculture category), PNP streams, or the TFW-to-PR pathway.'}
+  ]
+},
+'trtopr':{
+  title:'Temporary Resident → Permanent Resident',icon:'🔄',
+  desc:'Pathways for people already in Canada on work permits, study permits, or post-graduation work permits to transition to permanent residence.',
+  programs:[
+    {id:'trpr2021',name:'TR to PR Pathway (2021)',status:'closed',
+     summary:'A one-time, time-limited pathway created in 2021 for essential workers and international graduates already in Canada to apply for PR. It is permanently closed.',
+     eligibility:['Pathway is permanently closed — no new applications accepted'],documents:['N/A'],
+     processingTime:'Existing applications still being finalized',fees:'N/A',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/tr-pr-pathway.html'},
+    {id:'pgwpcec',name:'PGWP Holders → Express Entry (CEC)',status:'active',
+     summary:'The most common pathway for international graduates. After graduating from a Canadian DLI and getting a PGWP, gain 1+ year of skilled Canadian work experience, then apply through the Canadian Experience Class (CEC) in Express Entry.',
+     eligibility:['Graduate from a Canadian Designated Learning Institution','Obtain a Post-Graduation Work Permit (1–3 years)','Work in a skilled occupation (NOC TEER 0/1/2/3) for 12+ months','Take a language test meeting CEC minimums','Create an Express Entry profile and wait for an ITA','Can also seek a provincial nomination for 600 bonus CRS points'],
+     documents:['Same as CEC — see Express Entry section'],
+     processingTime:'~6 months after ITA',fees:'$1,365 per adult',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/canadian-experience-class.html'},
+    {id:'tfwpr',name:'Temporary Foreign Workers → PR',status:'active',
+     summary:'Workers on LMIA-based work permits can accumulate Canadian experience and qualify for PR through Express Entry (CEC), PNP streams, AIP, or category-based draws.',
+     eligibility:['CEC via Express Entry: after 1+ year of skilled Canadian work','PNP streams: many provinces have streams for workers already in the province','AIP: if working in Atlantic Canada with a designated employer','Category-based EE draws: healthcare, trades, STEM, agriculture, transport, French','Some provinces have streams for lower-skilled workers (TEER 4/5)'],
+     documents:['Depends on pathway chosen'],
+     processingTime:'Varies by pathway',fees:'Varies by pathway',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit/temporary.html'},
+    {id:'owp',name:'Open Work Permit Holders → PR',status:'active',
+     summary:'Work experience on open work permits (bridging OWP, spousal OWP, PGWP) counts for CEC and many PNP streams.',
+     eligibility:['Work experience on an open work permit counts for CEC','Must be authorized work in a qualifying NOC/TEER','Self-employment typically does not count','Meet the specific program\'s experience duration requirements'],
+     documents:['Work experience proof (T4, reference letters, pay stubs)','Language test','Other program-specific documents'],
+     processingTime:'Varies by pathway',fees:'Varies by pathway',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/canadian-experience-class.html'}
+  ]
+},
+'business':{
+  title:'Business & Investor Immigration',icon:'💼',
+  desc:'Programs for entrepreneurs, investors, and self-employed individuals who can contribute to Canada\'s economy.',
+  programs:[
+    {id:'suv',name:'Start-Up Visa Program (SUV)',status:'active',flag:'Permanent since 2018',
+     summary:'For innovative entrepreneurs who can build businesses in Canada. You need a letter of support from a designated Canadian venture capital fund, angel investor group, or business incubator. Up to 5 co-founders can apply per business.',
+     eligibility:['Letter of support from a designated organization — VC: $200K+ commitment; Angel: $75K+ commitment; Incubator: acceptance into program','Language: CLB 5 in all abilities','Each applicant must hold at least 10% voting rights','Applicants + designated organization must hold 50%+ total voting rights','Business must be incorporated in Canada','Proof of settlement funds'],
+     documents:['Letter of support from designated organization','Business plan and pitch materials','Proof of incorporation','Language test results','Proof of settlement funds','Police clearances, medical exam'],
+     processingTime:'Significant backlog — 12–36+ months reported',fees:'$2,140 per adult ($1,625 processing + $515 RPRF)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/start-visa.html',
+     note:'Processing times have been very long due to high demand. IRCC has announced measures to address the backlog.'},
+    {id:'selfem',name:'Self-Employed Persons Program',status:'active',
+     summary:'For people with experience in cultural activities (artists, musicians, writers), athletics (coaches, athletes), or farm management at the world-class level, who intend to be self-employed in Canada.',
+     eligibility:['2+ years relevant experience in the last 5 years: self-employment in cultural activities/athletics, OR participation at the world-class level, OR farm management','Score 35+ on the selection grid (experience, age, education, language, adaptability)','Intend and able to be self-employed in Canada','Settlement funds'],
+     documents:['Proof of cultural/athletic/farm experience','Evidence of world-class participation (if applicable)','Business plan for self-employment in Canada','Language test results','Police clearances, medical exam'],
+     processingTime:'~24–48 months',fees:'$1,575 ($1,060 processing + $515 RPRF)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/self-employed.html'},
+    {id:'provbiz',name:'Provincial Business / Investor Streams',status:'active',
+     summary:'Many provinces have their own entrepreneur and investor streams through PNPs. Requirements vary but generally involve net worth thresholds, business plans, and commitments to invest and create local jobs.',
+     eligibility:['Varies by province — generally requires: business/management experience, minimum net worth, business plan, investment commitment, job creation commitment'],
+     documents:['Business plan, proof of net worth, management experience documentation, provincial application forms'],
+     processingTime:'Varies widely by province',fees:'Provincial fees vary + federal PR fees',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html',
+     note:'Example minimum investments: BC $200K+, Ontario $600K (GTA) / $200K (outside), Manitoba $250K+, Saskatchewan $300K+ (major cities), Nova Scotia $150K+. Always verify on provincial websites.'},
+    {id:'fedinv',name:'Federal Immigrant Investor Program',status:'closed',
+     summary:'The federal investor program was terminated in 2014. It is no longer available.',
+     eligibility:['Program terminated — no applications accepted'],documents:['N/A'],
+     processingTime:'N/A',fees:'N/A',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html',
+     note:'Terminated in 2014. Provincial business streams and the Start-Up Visa are available alternatives.'}
+  ]
+},
+'humanitarian':{
+  title:'Humanitarian & Refugee Programs',icon:'🕊️',
+  desc:'Canada provides protection to refugees and offers permanent residence through humanitarian and compassionate grounds, caregiver programs, and special public policy pathways.',
+  programs:[
+    {id:'gar',name:'Government-Assisted Refugees (GAR)',status:'active',
+     summary:'Refugees referred by UNHCR or another referral organization. The Canadian government provides financial and settlement support for up to one year. Applicants do not apply directly — they are identified and referred abroad.',
+     eligibility:['Referred by UNHCR or a designated referral organization','Processed at a Canadian visa office abroad','Meet Canada\'s definition of a Convention Refugee or person in need of protection'],
+     documents:['Processed through referral — documents managed by UNHCR/visa office'],
+     processingTime:'Varies widely by visa office and country',fees:'No fees for the refugee (government-funded)',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-outside-canada/government-assisted-refugee-program.html'},
+    {id:'psr',name:'Privately Sponsored Refugees (PSR)',status:'active',
+     summary:'Canadian organizations or groups of 5+ citizens/PRs can sponsor refugees. Sponsors provide financial, emotional, and settlement support for 12 months or until self-sufficient.',
+     eligibility:['Sponsoring group: Sponsorship Agreement Holder (SAH), Group of Five (G5), or Community Sponsors','Sponsors commit to supporting the refugee for 12 months','Refugee must be recognized by UNHCR or meet Canada\'s Convention Refugee definition','Sponsors must demonstrate financial ability to support'],
+     documents:['Sponsorship application (IMM 1344)','Settlement plan','Financial documentation from sponsors','Refugee personal information forms'],
+     processingTime:'12–36 months depending on visa office',fees:'No fees for the refugee',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-outside-canada/private-sponsorship-program.html'},
+    {id:'asylum',name:'In-Canada Refugee Claim (Asylum)',status:'active',
+     summary:'If you\'re in Canada or at a port of entry and fear persecution or danger in your home country, you can make a refugee claim heard by the Immigration and Refugee Board (IRB). If accepted, apply for PR as a Protected Person.',
+     eligibility:['Must be in Canada or at a Canadian port of entry','Fear persecution based on race, religion, nationality, political opinion, or membership in a particular social group, OR face risk of torture, death, or cruel/unusual treatment','Eligibility screening by CBSA/IRCC','Hearing before the IRB Refugee Protection Division'],
+     documents:['Basis of Claim form (BOC)','Identity documents','Evidence supporting your claim','Country condition documentation'],
+     processingTime:'Hearing: months to 1+ year. PR after acceptance: ~12 months',fees:'PR application after acceptance: $550 processing + $500 RPRF',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada.html'},
+    {id:'hc',name:'Humanitarian & Compassionate (H&C) Applications',status:'active',
+     summary:'If you don\'t qualify through any regular program but have strong ties to Canada and would face unusual hardship if removed, you can request PR on H&C grounds. Discretionary — no guarantee of approval.',
+     eligibility:['Must be in Canada','Factors considered: establishment in Canada, best interests of children, health conditions, family violence, separation from relatives, home country conditions','Cannot be used with a pending refugee claim','Discretionary — approval is not guaranteed'],
+     documents:['Detailed written submissions explaining H&C factors','Evidence of establishment (employment, community ties, taxes)','Children\'s best interest documentation (if applicable)','Medical reports (if applicable)','Country condition evidence','Supporting letters'],
+     processingTime:'2+ years (varies widely)',fees:'$890',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/after-apply-next-steps/apply-stay-humanitarian-compassionate.html'},
+    {id:'caregiver',name:'Caregiver Pilots (Home Child Care Provider & Home Support Worker)',status:'active',flag:'Updated 2024',
+     summary:'Direct PR pathway for caregivers. Apply for a work permit and PR simultaneously. After gaining qualifying Canadian work experience, finalize your PR application. Two streams: home child care providers and home support workers.',
+     eligibility:['Job offer in home child care or home support work','Language: CLB 5','Education: post-secondary credential (1+ year) or Canadian equivalent','Work experience requirement of 12 months (updated from 24 months in 2024)','Admissibility and medical requirements'],
+     documents:['Job offer letter','Language test results','Educational credential assessment','Work experience proof (after gaining required months)','Police clearances, medical exam'],
+     processingTime:'Work permit: ~3–6 months. PR finalization: after work experience met',fees:'Work permit + PR fees',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/caregivers.html'},
+    {id:'pubpol',name:'Public Policy Pathways',status:'active',flag:'Varies — check IRCC',
+     summary:'Canada occasionally creates special public policy pathways for specific groups affected by crises. Typically time-limited and announced as needed.',
+     eligibility:['Varies by pathway — each public policy has specific eligibility criteria','Recent/notable: Hong Kong pathway (Stream A graduates, Stream B workers), Afghan special programs, Sudan emergency measures, Ukraine CUAET'],
+     documents:['Varies by pathway'],
+     processingTime:'Varies',fees:'Varies',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/news.html',
+     note:'Public policy pathways change frequently and are time-limited. Check IRCC News for the latest announcements.'}
+  ]
+}
+};
+
+const FAQS = [
+  {q:'What is the difference between Express Entry and a PNP?',a:'Express Entry is a federal system managing three programs (FSWP, CEC, FSTP) using the CRS points system. A PNP is run by an individual province to nominate immigrants meeting local needs. They often work together — a provincial nomination adds 600 CRS points, virtually guaranteeing an invitation. You can also apply through non-Express Entry PNP streams processed separately.'},
+  {q:'What is a CRS score and what is a "good" score?',a:'The Comprehensive Ranking System scores your Express Entry profile out of 1,200 points based on age, education, language, work experience, and other factors. General draw cutoffs typically range from 430 to 530+, but change every draw. Category-based draws may have lower cutoffs. A provincial nomination adds 600 points. There is no fixed "good" score — check the latest draw results on the IRCC website.'},
+  {q:'How often does Canada hold Express Entry draws?',a:'IRCC typically holds draws every 1–2 weeks, but schedules vary. Since 2023, category-based draws target specific occupations or French-language speakers alongside general draws. Schedules are not published in advance — check the official Rounds of Invitations page.'},
+  {q:'Do I need a job offer to apply for PR?',a:'Not necessarily. Most Express Entry candidates don\'t have job offers. However, a valid LMIA-supported job offer adds 50 or 200 CRS points. Some programs (AIP, some PNP streams) do require a job offer. Each pathway has different requirements.'},
+  {q:'What language tests are accepted?',a:'English: IELTS General Training or CELPIP General. French: TEF Canada or TCF Canada. Academic IELTS is NOT accepted. Results are valid for 2 years. You can test in both languages to maximize CRS points.'},
+  {q:'What is an Educational Credential Assessment (ECA)?',a:'An ECA verifies that your foreign education equals a Canadian credential. Required for Express Entry if your education was outside Canada. Designated organizations: WES, IQAS, CES, ICAS, and others. Valid for 5 years. Processing takes 4–8 weeks.'},
+  {q:'What are biometrics?',a:'Fingerprints and photograph. Most PR applicants ages 14–79 must provide them. After submitting your application, IRCC sends a biometrics instruction letter. Visit a designated collection point. Fee: $85/person or $170/family. Valid for 10 years.'},
+  {q:'How long does PR processing take?',a:'Express Entry: ~6 months after ITA. PNP (non-EE): 15–19 months. Spousal sponsorship: ~12 months. Parents/grandparents: 20–24 months. Business programs: 12–36+ months. Check the IRCC processing times tool for current estimates.'},
+  {q:'Can I include my family in my PR application?',a:'Yes. Most programs allow you to include your spouse/common-law partner and dependent children (under 22, unmarried). They receive PR when your application is approved. You must declare all family members even if not accompanying you.'},
+  {q:'What happens after I get PR status?',a:'You receive a Confirmation of Permanent Residence (COPR). If outside Canada, complete landing at a port of entry. Your PR card is mailed to your Canadian address (1–3 months). You can live, work, study anywhere in Canada. Maintain PR by being physically present 730+ days in every 5-year period.'},
+  {q:'How long to get a PR card?',a:'First PR card after landing: 1–3 months by mail. Renewals: 49–97 days. PR card is valid for 5 years. You need it to re-enter Canada if travelling abroad.'},
+  {q:'When can I apply for Canadian citizenship?',a:'After 1,095 days (3 years) of physical presence in Canada within the 5 years before applying. Must also meet language requirements (CLB 4+, ages 18–54), pass a citizenship test, file Canadian taxes, and have no criminal/removal issues.'},
+  {q:'What are NOC and TEER?',a:'NOC = National Occupational Classification — Canada\'s job categorization system. TEER = Training, Education, Experience, Responsibilities — levels 0–5, replacing the old A/B/C/D in 2022. Most PR programs require TEER 0–3 ("skilled"). Use the NOC search tool at canada.ca.'},
+  {q:'Can I apply to multiple PR programs at once?',a:'You can have an Express Entry profile while applying to PNP streams separately. Don\'t submit multiple federal PR applications simultaneously. If you get a provincial nomination, add it to your Express Entry profile.'},
+  {q:'Do I need an immigration consultant?',a:'No — you can apply on your own using IRCC\'s guides. For complex cases, use a licensed RCIC (Regulated Canadian Immigration Consultant) or Canadian lawyer. Unlicensed "ghost agents" are illegal.'},
+  {q:'What are the settlement fund requirements?',a:'Approx. 2024: 1 person ~$14,690; 2 ~$18,288; 3 ~$22,483; 4 ~$27,297. Not required if you have a valid job offer or applying through CEC while working in Canada. Check IRCC for current amounts.'}
+];
+
+// ============ ROUTER & RENDER ============
+let currentPage = 'home';
+
+function go(page) {
+  currentPage = page;
+  window.location.hash = '#/' + page;
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+  closeNav();
+  updateNav();
+}
+
+function render() {
+  const app = document.getElementById('app');
+  const s = document.getElementById('hdrSearch');
+  s.style.display = currentPage === 'home' ? 'none' : 'block';
+
+  if (currentPage === 'home') app.innerHTML = renderHome();
+  else if (currentPage === 'faq') app.innerHTML = renderFAQ();
+  else if (currentPage === 'tools') app.innerHTML = renderTools();
+  else if (P[currentPage]) app.innerHTML = renderCategory(currentPage);
+  else app.innerHTML = renderHome();
+}
+
+function renderHome() {
+  const catCards = CATS.map(c => `<div class="cat-card" onclick="go('${c.id}')">
+    <span class="ic">${c.icon}</span>
+    <h3>${c.name}</h3>
+    <p>${c.desc}</p>
+  </div>`).join('');
+
+  const featuredCard = `<a class="cat-card featured" href="https://019d2059-77a8-79f9-96bc-5da6dff9fb4a.arena.site/" target="_blank" rel="noopener">
+    <span class="ic">🍁</span>
+    <h3>Canadian PR Pathway Finder</h3>
+    <p>Not sure which program is right for you? Use our interactive Pathway Finder tool to discover your best PR route to Canada — personalized to your profile.</p>
+    <span class="cta-arrow">Find Your Pathway →</span>
+    <span class="maple-leaf">🍁</span>
+  </a>`;
+
+  return `<div class="fade">
+  <div class="hero">
+    <h1>Your Complete Guide to<br><em>Canadian PR</em></h1>
+    <p>Every permanent residence pathway — eligibility, documents, fees, and official links. Plain English. Always current.</p>
+    <div class="hero-search" style="position:relative">
+      <span class="si">🔍</span>
+      <input type="text" placeholder="Search any program, province, or keyword…" oninput="doSearch(this.value,this)" autocomplete="off" id="heroSearchInput">
+      <div class="s-drop" id="heroDrop"></div>
+    </div>
+  </div>
+  <h2 class="sec-title">Explore by Category</h2>
+  <p class="sec-sub">Select a category to view every available stream.</p>
+  <div class="cat-grid">
+    ${catCards}
+    ${featuredCard}
+  </div>
+  <div class="ftr">
+    <strong>CanadaPR Guide</strong> — Free informational resource. Not affiliated with IRCC or the Government of Canada.<br>
+    Not legal advice. Always verify at <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">canada.ca/immigration</a>.
+  </div>
+  </div>`;
+}
+
+function renderCategory(catId) {
+  const cat = P[catId];
+  if (!cat) return renderHome();
+  return `<div class="fade">
+  <div class="pg-hdr">
+    <a class="back" onclick="go('home')">← All Categories</a>
+    <h1>${cat.icon} ${cat.title}</h1>
+    <p>${cat.desc}</p>
+  </div>
+  ${cat.programs.map(p => renderProgramCard(p, catId)).join('')}
+  <div class="ftr">
+    <strong>CanadaPR Guide</strong> — Not affiliated with IRCC. Verify at <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">canada.ca/immigration</a>.
+  </div>
+  </div>`;
+}
+
+function renderProgramCard(p, catId) {
+  const statusClass = p.status === 'active' ? 'active' : p.status === 'paused' ? 'paused' : 'closed';
+  const statusText = p.status === 'active' ? '✅ Active' : p.status === 'paused' ? '⚠️ Paused' : '❌ Closed';
+  const flag = p.flag ? `<span class="upd-flag">${p.flag}</span>` : '';
+  const catName = P[catId]?.title || '';
+
+  let body = '';
+
+  if (p.summary) body += `<div class="sumbox"><strong>30-Second Summary</strong>${p.summary}</div>`;
+
+  if (p.status === 'closed' && p.note) body += `<p class="closed-msg">❌ ${p.note}</p>`;
+
+  if (p.eligibility?.length && p.status !== 'closed') {
+    const infoItems = [];
+    if (catName) infoItems.push({l:'Category',v:catName});
+    if (p.processingTime && p.processingTime !== 'N/A') infoItems.push({l:'Processing Time',v:p.processingTime});
+    if (p.fees && p.fees !== 'N/A') infoItems.push({l:'Fees (CAD)',v:p.fees});
+    if (infoItems.length) body += `<div class="info-row">${infoItems.map(i=>`<div class="info-pill"><div class="l">${i.l}</div><div class="v">${i.v}</div></div>`).join('')}</div>`;
+    body += `<h3>Eligibility</h3><ul>${p.eligibility.map(e=>`<li>${e}</li>`).join('')}</ul>`;
+  }
+
+  if (p.streams) {
+    body += `<h3>Streams</h3><table><tr><th>Stream</th><th>Type</th><th>Status</th></tr>${p.streams.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[2]}</td></tr>`).join('')}</table>`;
+    if (p.fees) body += `<div class="info-row"><div class="info-pill"><div class="l">Fees</div><div class="v">${p.fees}</div></div></div>`;
+  }
+
+  if (p.documents?.length && p.documents[0] !== 'N/A') {
+    body += `<h3>Required Documents</h3><ul>${p.documents.map(d=>`<li>${d}</li>`).join('')}</ul>`;
+  }
+
+  if (p.note && p.status !== 'closed') body += `<p style="font-size:.82rem;color:var(--amber);margin-top:10px"><em>⚠️ ${p.note}</em></p>`;
+
+  if (p.link) body += `<a class="link-btn" href="${p.link}" target="_blank" rel="noopener">Official Source →</a>`;
+
+  return `<div class="p-card" id="${p.id||''}">
+    <div class="p-head" onclick="this.parentElement.classList.toggle('open')">
+      <h2>${p.name}${flag}</h2>
+      <span class="badge ${statusClass}">${statusText}</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="p-body">${body}</div>
+  </div>`;
+}
+
+function renderFAQ() {
+  return `<div class="fade">
+  <div class="pg-hdr">
+    <a class="back" onclick="go('home')">← Home</a>
+    <h1>❓ Frequently Asked Questions</h1>
+    <p>Clear answers to common questions about Canadian permanent residence.</p>
+  </div>
+  ${FAQS.map(f => `<div class="faq">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>${f.q}</span><span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-a">${f.a}</div>
+  </div>`).join('')}
+  <div class="ftr">Verify all information at <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">canada.ca/immigration</a>.</div>
+  </div>`;
+}
+
+function renderTools() {
+  const tools = [
+    {ic:'📊',name:'CRS Score Calculator',desc:'Estimate your Comprehensive Ranking System score for Express Entry.',
+     io:'<strong>Input:</strong> Age, education, language scores, work experience, spouse details, job offer, nomination status.<br><strong>Output:</strong> CRS score out of 1,200 with category breakdown and comparison to recent draws.',
+     link:'https://www.cic.gc.ca/english/immigrate/skilled/crs-tool.asp',linkText:'Use IRCC\'s Official CRS Tool →'},
+    {ic:'✅',name:'Eligibility Quiz',desc:'Answer simple questions to find which PR programs you may qualify for.',
+     io:'<strong>Input:</strong> Nationality, age, education, language ability, work experience, family in Canada, net worth.<br><strong>Output:</strong> Personalized list of eligible PR pathways ranked by likelihood.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/come-canada-tool.html',linkText:'Try IRCC\'s Come to Canada Tool →'},
+    {ic:'📋',name:'Document Checklist Generator',desc:'Get a customized list of every document needed for your specific application.',
+     io:'<strong>Input:</strong> Program, country of residence, family members, education location.<br><strong>Output:</strong> Complete checklist with document names, format requirements, and tips.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html',linkText:'IRCC Application Forms & Guides →'},
+    {ic:'🔍',name:'NOC Code Finder',desc:'Find the correct National Occupational Classification code for your job.',
+     io:'<strong>Input:</strong> Job title, main duties, industry.<br><strong>Output:</strong> Matching NOC codes with TEER level and which PR programs accept that occupation.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html',linkText:'Use IRCC\'s NOC Tool →'},
+    {ic:'⏱️',name:'Processing Time Tracker',desc:'Check current estimated processing times for any immigration application.',
+     io:'<strong>Input:</strong> Application type, country of residence.<br><strong>Output:</strong> Current IRCC processing time estimate.',
+     link:'https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html',linkText:'Check IRCC Processing Times →'}
+  ];
+  return `<div class="fade">
+  <div class="pg-hdr">
+    <a class="back" onclick="go('home')">← Home</a>
+    <h1>🛠️ Tools & Resources</h1>
+    <p>Official tools to assess eligibility, estimate scores, and prepare your application.</p>
+  </div>
+  <div class="tool-grid">
+    ${tools.map(t => `<div class="tool-card">
+      <span class="ic">${t.ic}</span>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <div class="io">${t.io}</div>
+      ${t.link ? `<a class="link-btn" href="${t.link}" target="_blank" rel="noopener" style="margin-top:14px">${t.linkText}</a>` : ''}
+    </div>`).join('')}
+  </div>
+  <div class="ftr">All tools link to official IRCC resources. <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">canada.ca/immigration</a></div>
+  </div>`;
+}
+
+// ============ SEARCH ============
+const searchIndex = [];
+Object.keys(P).forEach(catId => {
+  const cat = P[catId];
+  cat.programs.forEach(p => {
+    searchIndex.push({title:p.name,cat:cat.title,page:catId,id:p.id});
+    if (p.streams) p.streams.forEach(s => {
+      searchIndex.push({title:s[0],cat:cat.title + ' → ' + p.name,page:catId,id:p.id});
+    });
+  });
+});
+searchIndex.push({title:'Canadian PR Pathway Finder',cat:'Interactive Tool',page:'_ext',id:'finder'});
+[{t:'FAQ — CRS Score',p:'faq'},{t:'FAQ — Express Entry Draws',p:'faq'},{t:'FAQ — Processing Times',p:'faq'},{t:'FAQ — Biometrics',p:'faq'},{t:'FAQ — Settlement Funds',p:'faq'},{t:'FAQ — Citizenship',p:'faq'},
+ {t:'CRS Calculator',p:'tools'},{t:'Eligibility Quiz',p:'tools'},{t:'NOC Code Finder',p:'tools'},{t:'Document Checklist',p:'tools'},{t:'Processing Time Tracker',p:'tools'}
+].forEach(x => searchIndex.push({title:x.t,cat:x.p==='faq'?'FAQ':'Tools',page:x.p}));
+
+function doSearch(q, input) {
+  const isHero = input.id === 'heroSearchInput';
+  const dropId = isHero ? 'heroDrop' : 'hdrDrop';
+  const drop = document.getElementById(dropId);
+  if (!q.trim()) { drop.classList.remove('open'); return; }
+  const lq = q.toLowerCase();
+  const matches = searchIndex.filter(s => s.title.toLowerCase().includes(lq) || s.cat.toLowerCase().includes(lq));
+  if (!matches.length) {
+    drop.innerHTML = '<div class="s-item"><h4>No results found</h4></div>';
+  } else {
+    drop.innerHTML = matches.slice(0, 8).map(m => {
+      if (m.page === '_ext') {
+        return `<div class="s-item" onclick="window.open('https://019d2059-77a8-79f9-96bc-5da6dff9fb4a.arena.site/','_blank')" style="background:#fef2f2">
+          <h4 style="color:#dc2626">🍁 ${m.title}</h4><p>${m.cat}</p>
+        </div>`;
+      }
+      return `<div class="s-item" onclick="go('${m.page}');document.querySelectorAll('.s-drop').forEach(d=>d.classList.remove('open'))">
+        <h4>${m.title}</h4><p>${m.cat}</p>
+      </div>`;
+    }).join('');
+  }
+  drop.classList.add('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.hero-search') && !e.target.closest('.hdr-search'))
+    document.querySelectorAll('.s-drop').forEach(d => d.classList.remove('open'));
+});
+
+// ============ NAV ============
+function updateNav() {
+  const dn = document.getElementById('deskNav');
+  dn.innerHTML = NAV.filter(n => ['home','express-entry','pnp','family','faq','tools'].includes(n.id))
+    .map(n => `<a onclick="go('${n.id}')" class="${currentPage===n.id?'on':''}">${n.label}</a>`).join('');
+
+  const mn = document.getElementById('mobileNav');
+  mn.innerHTML = NAV.map(n => `<a onclick="go('${n.id}')">${n.label}</a>`).join('') +
+    '<div class="sep"></div>' +
+    '<a href="https://019d2059-77a8-79f9-96bc-5da6dff9fb4a.arena.site/" target="_blank" style="color:#dc2626;font-weight:700">🍁 PR Pathway Finder ↗</a>' +
+    '<a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">Official IRCC Website ↗</a>';
+}
+
+function openNav() { document.getElementById('overlay').classList.add('open'); }
+function closeNav() { document.getElementById('overlay').classList.remove('open'); }
+
+// ============ SCROLL ============
+window.addEventListener('scroll', () => {
+  document.getElementById('scrollBtn').classList.toggle('show', window.scrollY > 300);
+});
+
+// ============ HASH ROUTING ============
+function handleHash() {
+  const hash = window.location.hash.replace('#/', '') || 'home';
+  currentPage = hash;
+  render();
+  updateNav();
+}
+window.addEventListener('hashchange', handleHash);
+handleHash();
+</script>
+</body>
+</html>
